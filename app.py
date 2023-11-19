@@ -27,9 +27,9 @@ else:
         prediction = model.predict(img_array)
         return prediction[0][0]  # Return the confidence score
 
-    # Streamlit app
-    st.title('Boston Hacks')
-    st.header('Trash or Recycle')
+# Streamlit app
+st.title('Boston Hacks')
+st.header('Trash or Recycle')
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:

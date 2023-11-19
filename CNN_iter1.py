@@ -84,7 +84,7 @@ history = model.fit(
 loss, accuracy = model.evaluate(test_generator)
 print(f'Test Loss: {loss:.4f}, Test Accuracy: {accuracy:.4f}')
 
-model.save('CNN_model')
+model.save('CNN_model.keras')
 
 # Plot training history
 plt.plot(history.history['accuracy'], label='Training Accuracy')
