@@ -69,9 +69,8 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 
-
 # train model
-epochs = 10
+epochs = 15
 
 history = model.fit(
     train_generator,
@@ -85,6 +84,7 @@ history = model.fit(
 loss, accuracy = model.evaluate(test_generator)
 print(f'Test Loss: {loss:.4f}, Test Accuracy: {accuracy:.4f}')
 
+model.save('CNN_model')
 
 # Plot training history
 plt.plot(history.history['accuracy'], label='Training Accuracy')
