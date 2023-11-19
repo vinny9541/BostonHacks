@@ -93,3 +93,22 @@ plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.legend()
 plt.show()
+
+
+test_generator.reset()  # Reset generator to start from the beginning
+predictions = model.predict(test_generator)
+
+# Display some images and their predictions
+num_images_to_display = 100
+for i in range(num_images_to_display):
+    image, true_label = test_generator.next()
+    predicted_label = predictions[i]
+
+    # Convert to binary (0 or 1)
+    true_label = int(true_label[0])
+    predicted_label = 1 if predicted_label > 0.5 else 0
+
+    # Display the image along with true and predicted labels
+    plt.imshow(image[0])
+    plt.title(f'True Label: {true_label}, Predicted Label: {predicted_label}')
+    plt.show()
