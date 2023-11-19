@@ -25,8 +25,8 @@ def predict_image_class(img_array, model):
         return "Trash"
 
 # Streamlit app
-st.title('Boston Hacks')
-st.header('Trash or Recycle')
+st.image('app_resources/banner.png', use_column_width='always')
+st.header('Is it trash? Or can you Recycle it?')
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
