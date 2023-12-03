@@ -28,22 +28,22 @@ else:
         return prediction[0][0]  # Return the confidence score
 
 # Streamlit app
-st.image('app_resources/banner.png', use_column_width='always')
+#st.image('app_resources/banner.png', use_column_width='always')
 st.header('Is it trash? Or can you Recycle it?')
 
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
 
-        # Display the uploaded image
-        st.image(image, caption='Uploaded Image', use_column_width=True)
+    # Display the uploaded image
+    st.image(image, caption='Uploaded Image', use_column_width=True)
 
-        # Predict and display the classification
-        preprocessed_image = preprocess_image(image, 150, 150)  
-        confidence_score = predict_image_class(preprocessed_image, model)
+    # Predict and display the classification
+    preprocessed_image = preprocess_image(image, 150, 150)  
+    confidence_score = predict_image_class(preprocessed_image, model)
 
-        threshold = 0.5
-        result = "Recycling" if confidence_score > threshold else "Trash"
+    threshold = 0.5
+    result = "Recycling" if confidence_score > threshold else "Trash"
 
-        st.write(f"The image is classified as: {result}")
-        st.write(f"Confidence Score: {confidence_score:.2%}")  # Display confidence
+    st.write(f"The image is classified as: {result}")
+    st.write(f"Confidence Score: {confidence_score:.2%}")  # Display confidence
